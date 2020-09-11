@@ -1,4 +1,4 @@
-package com.pagdevapp.pagdevapp;
+package com.pagdevapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
