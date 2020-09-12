@@ -3,19 +3,35 @@
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 	<title>PapDevApp</title>
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>	  
 <body>
 	  
-	<h1>Cadastro de Divida:</h1>
-	<form method="post"> 
-		Valor:<input type="text" value="" name="vlDivida"/>
-		Data de Pagamento:<input type="date" value="" name="dtLimitePagamento"/>
-		Status:<input type="text" value="NAO_PAGO" name="status"/>
-		
-		<button type="submit">Salvar</button>
+	<h1>Cadastro de Divida</h1>
+	<h3><a href="/dividas" class="waves-effect waves-light btn"><i class="material-icons left">dehaze</i>Lista de Divida</a></h3>
+	<form class="container" method="post"> 
+		<div class="row">
+			<div class="input-field col s4">
+				Valor:<input type="text" value="" name="vlDivida"/>
+			</div>
+			<div class="input-field col s4">
+			Data de Pagamento:<input type="date" value="" name="dtLimitePagamento"/>
+			</div>
+			<div class="input-field col s4">
+			Status:<input type="text" value="NAO_PAGO" name="status"/>
+			</div>
+		</div>
+		<button type="submit" class="waves-effect waves-light btn">Salvar</button>
 		
 	</form>
-	  
+	<!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 
 </html>

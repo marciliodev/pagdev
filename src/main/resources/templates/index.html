@@ -3,20 +3,34 @@
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 	<title>PapDevApp</title>
+	<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>	  
 <body>
 	<h1>Lista de Dividas</h1>
-	<h3><a href="/cadastrarDivida">Cadastrar Divida</a></h3>
-
-	<div th:each="divida : ${dividas}">
-		<div class="row">
-			<p><span th:text="${divida.vlDivida}"></span></p>
-			<p><span th:text="${divida.dtLimitePagamento}"></span></p>
-			<p><span th:text="${divida.status}"></span></p>
-		
-		</div>
-	
-	</div>
-	
+	<h3><a href="/cadastrarDivida" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Divida</a></h3>
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Valor</th>
+				<th>Data Limite de Pagamento</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="divida : ${dividas}">
+				<td><span th:text="${divida.vlDivida}"></span></td>
+				<td><span th:text="${divida.dtLimitePagamento}"></span></td>
+				<td><span th:text="${divida.status}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>
