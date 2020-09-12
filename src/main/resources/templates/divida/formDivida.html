@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 	<title>PapDevApp</title>
 </head>	  
@@ -7,9 +8,9 @@
 	  
 	<h1>Cadastro de Divida:</h1>
 	<form method="post"> 
-		Valor: <input type="text" value="" name="vl_divida"/>
-		Data de Pagamento:  <input type="date" value="" name="dt_limite_pagamento"/>
-		Status <input type="text" value="NAO_PAGO" name="st_pagamento" disabled/>
+		Valor:<input type="text" value="" name="vlDivida"/>
+		Data de Pagamento:<input type="date" value="" name="dtLimitePagamento"/>
+		Status:<input type="text" value="NAO_PAGO" name="status"/>
 		
 		<button type="submit">Salvar</button>
 		

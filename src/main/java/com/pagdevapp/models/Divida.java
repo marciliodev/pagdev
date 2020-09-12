@@ -34,7 +34,7 @@ public class Divida implements Serializable{
 	@Column(name = "dt_limite_pagamento")
 	@JsonSerialize(using = LocalDateTimeSerializer.class)
 	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
-	private LocalDateTime dtLimitePagamento;
+	private String dtLimitePagamento;
 	
 	@NotNull
 	@Column(name = "st_pagamento")
@@ -52,16 +52,16 @@ public class Divida implements Serializable{
 	public void setVlDivida(BigDecimal vlDivida) {
 		this.vlDivida = vlDivida;
 	}
-	public LocalDateTime getDtLimitePagamento() {
+	public String getDtLimitePagamento() {
 		return dtLimitePagamento;
 	}
-	public void setDtLimitePagamento(LocalDateTime dtLimitePagamento) {
+	public void setDtLimitePagamento(String dtLimitePagamento) {
 		this.dtLimitePagamento = dtLimitePagamento;
 	}
-	public String getIdStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setIdStatus(String status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}	
 }

@@ -1,11 +1,22 @@
-<html>
-
-
-
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>PapDevApp</title>
+</head>	  
 <body>
+	<h1>Lista de Dividas</h1>
+	<h3><a href="/cadastrarDivida">Cadastrar Divida</a></h3>
 
-
-<h3>Ola Mundo Com Spring Boot!</h3>
-
+	<div th:each="divida : ${dividas}">
+		<div class="row">
+			<p><span th:text="${divida.vlDivida}"></span></p>
+			<p><span th:text="${divida.dtLimitePagamento}"></span></p>
+			<p><span th:text="${divida.status}"></span></p>
+		
+		</div>
+	
+	</div>
+	
 </body>
 </html>
