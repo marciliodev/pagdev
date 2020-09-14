@@ -47,6 +47,10 @@ public class DividaController {
 		Divida  divida = dr.findByIdDivida(idDivida);
 		ModelAndView mv = new ModelAndView("divida/detalhesDivida");
 		mv.addObject("divida", divida);
+		
+		Iterable<Devedor> devedores = der.findByDivida(divida);
+		mv.addObject("devedores", devedores);
+		
 		return mv;
 	}
 	
