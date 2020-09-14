@@ -2,18 +2,15 @@ package com.pagdevapp.models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.pagdevapp.utils.LocalDateTimeSerializer;
 import com.sun.istack.NotNull;
 
 @Entity
@@ -23,7 +20,7 @@ public class Divida implements Serializable{
 	
 	@Id
 	@Column(name = "id_divida")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idDivida;
 	
 	@NotNull
@@ -32,13 +29,14 @@ public class Divida implements Serializable{
 	
 	@NotNull
 	@Column(name = "dt_limite_pagamento")
-	@JsonSerialize(using = LocalDateTimeSerializer.class)
-	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	private String dtLimitePagamento;
 	
 	@NotNull
 	@Column(name = "st_pagamento")
 	private String status;
+	
+	@OneToMany
+	private List<Devedor> devedores;
 	
 	public Long getIdDivida() {
 		return idDivida;
