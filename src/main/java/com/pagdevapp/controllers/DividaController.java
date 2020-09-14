@@ -2,6 +2,8 @@ package com.pagdevapp.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -34,5 +36,13 @@ public class DividaController {
 		Iterable<Divida> dividas = dr.findAll();
 		mv.addObject("dividas", dividas);
 		return mv;	
+	}
+	
+	@RequestMapping("/{idDivida}")
+	public ModelAndView detalhesDivida(@PathVariable("idDivida") long idDivida) {
+		Divida  divida = dr.findByIdDivida(idDivida);
+		ModelAndView mv = new ModelAndView("divida/detalhesDivida");
+		mv.addObject("divida", divida);
+		return mv;
 	}
 }
