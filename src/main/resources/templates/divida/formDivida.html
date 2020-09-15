@@ -10,14 +10,24 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="style/styleCss.css"/>
 </head>	  
 <body>
 	  
-	<h1>Cadastro de Divida</h1>
-	<h3><a href="/dividas" class="waves-effect waves-light btn"><i class="material-icons left">dehaze</i>Lista de Divida</a></h3>
+	<header>
+		<nav>
+    		<div class="nav-wrapper">
+      			<a href="#" class="brand-logo">Cadastro de Divida</a>
+			    <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        		<li><a href="/dividas" class="waves-effect waves-light btn"><i class="material-icons left">dehaze</i>Lista de Divida</a></li>
+      			</ul>
+    		</div>
+  		</nav>
+	</header>  
 	
 	<th:block th:include="mensagemValidacao"></th:block>
-	
+	<div class="container formDivida">
 	<form class="container" method="post"> 
 		<div class="row">
 			<div class="input-field col s12">
@@ -38,6 +48,7 @@
 		<button type="submit" class="waves-effect waves-light btn">Salvar</button>
 		
 	</form>
+	</div>
 	<!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

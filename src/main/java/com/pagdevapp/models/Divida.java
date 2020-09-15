@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Divida implements Serializable{
 	@Column(name = "st_pagamento")
 	private String status;
 	
-	@OneToMany
+	@OneToMany(mappedBy="divida", cascade=CascadeType.ALL, orphanRemoval = true)
 	private List<Devedor> devedores;
 	
 	public Long getIdDivida() {

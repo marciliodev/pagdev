@@ -10,17 +10,29 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="style/styleCss.css"/>
 </head>	  
 <body>
-	<h1>Lista de Dividas</h1>
-	<h3><a href="/cadastrarDivida" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Divida</a></h3>
+
+	<header>
+		<nav>
+    		<div class="nav-wrapper">
+      			<a href="#" class="brand-logo">Lista de Dividas</a>
+			    <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        		<li><a href="/cadastrarDivida" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Divida</a></li>
+      			</ul>
+    		</div>
+  		</nav>
+	</header>
 	<table class="container">
 		<thead>
 			<tr>
 				<th>Devedor</th>
 				<th>Valor</th>
-				<th>Data Limite de Pagamento</th>
+				<th>Data de Pagamento</th>
 				<th>Status</th>
+				<th>Deletar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +41,7 @@
 				<td><span th:text="${divida.vlDivida}"></span></td>
 				<td><span th:text="${divida.dtLimitePagamento}"></span></td>
 				<td><span th:text="${divida.status}"></span></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#deletarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons center">delete</i></a></td>
 			</tr>
 		</tbody>
 	</table>

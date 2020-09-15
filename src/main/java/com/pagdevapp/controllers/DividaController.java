@@ -62,6 +62,13 @@ public class DividaController {
 		return mv;
 	}
 	
+	@RequestMapping("/deletarDivida")
+	public String deletarDivida(long idDivida) {
+		Divida divida = dr.findByIdDivida(idDivida);
+		dr.delete(divida);
+		return "redirect:/dividas";
+	}
+	
 	@RequestMapping(value="/{idDivida}", method=RequestMethod.POST)
 	public String detalhesDividaPost(@PathVariable("idDivida") long idDivida, @Valid Devedor devedor, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
@@ -74,4 +81,31 @@ public class DividaController {
 		attributes.addFlashAttribute("mensagem", "Devedor adicionado com sucesso!");
 		return "redirect:/{idDivida}";
 	}
+	
+	@RequestMapping("/deletarDevedor")
+	public String deletarDevedor(String cpfDevedor) {
+		Devedor devedor = der.findByCpfDevedor(cpfDevedor);
+		der.delete(devedor);
+		
+		Divida divida = devedor.getDivida();
+		long codigoLong = divida.getIdDivida();
+		String codigo = "" + codigoLong;
+		return "redirect:/" + codigo;
+	}
+	// Formulario edição divida
+    @RequestMapping(value = "/editar-divida", method = RequestMethod.GET)
+    public ModelAndView editarEvent(long idDivida) {
+        Divida divida = dr.findByIdDivida(idDivida);
+        ModelAndView mv = new ModelAndView("divida/update-divida");
+        mv.addObject("divida", divida);
+        return mv;
+    }
+
+    // Updating divida
+    @RequestMapping(value = "/editar-divida", method = RequestMethod.POST)
+    public String updateEvent(@Valid Divida divida, BindingResult result, RedirectAttributes attributes) {
+        dr.save(divida);
+        attributes.addFlashAttribute("success", "Divida alterado com sucesso!");
+        return "redirect:/";
+    }
 }

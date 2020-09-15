@@ -10,20 +10,32 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+      <link rel="stylesheet" href="style/styleCss.css"/>
 </head>	  
 <body>
-	<h1>Divida</h1>
-	<h3><a href="/dividas" class="waves-effect waves-light btn"><i class="material-icons left">dehaze</i>Lista de Dividas</a></h3>
-	<div th:each="divida : ${divida}" class="container">
+	<header>
+		<nav>
+    		<div class="nav-wrapper">
+      			<a href="#" class="brand-logo">Divida</a>
+			    <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        		<li><a href="/dividas" class="waves-effect waves-light btn"><i class="material-icons left">dehaze</i>Lista de Divida</a></li>
+      			</ul>
+    		</div>
+  		</nav>
+	</header>  
+	<div th:each="divida : ${divida}" class="container detalhesDivida">
+	<h5>Detalhes da Divida</h5>
 		<div class="row">
 			<p><span th:text="MOCK"></span></p>
 			<p><span th:text="${divida.vlDivida}"></span></p>
 			<p><span th:text="${divida.dtLimitePagamento}"></span></p>
 			<p><span th:text="${divida.status}"></span></p>
 		</div>
+	</div>
 		
 		<th:block th:include="mensagemValidacao"></th:block>
-		
+		<div class="container formDevedor">
 		<form method="post" th:object="${devedor}">
 			CPF:<input type="text" value="" name="cpfDevedor" placeholder="000.000.000-00" class="validate"/>
 			Nome:<input type="text" value="" name="nmDevedor" placeholder="Nome Completo"/>
@@ -31,18 +43,25 @@
 			Telefone:<input type="text" value="" name="telefoneDevedor" placeholder="(00) 00000-0000" class="validate"/>
 			<button  class="waves-effect waves-light btn" type="submit">Adicionar</button>	
 		</form>
-	</div>
-	<h5>Lista de Devedores: </h5>
-	<div class="container" th:each="devedor : ${devedores}">
-		<div class="row">
-			<div class="input field col s6">
-				<p><span th:text="${devedor.nmDevedor}"></span></p>
-			</div>
-			<div class="input field col s3">
-				<p><span th:text="${devedor.cpfDevedor}"></span></p>
-			</div>
 		</div>
-	</div>
+
+	<table class="container tabelaDevedor">
+		<thead>
+			<tr>
+				<th>Nome Devedor</th>
+				<th>CPF</th>
+				<th>Deletar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="devedor : ${devedores}">
+				<td><span th:text="${devedor.nmDevedor}"></span>
+				<td><span th:text="${devedor.cpfDevedor}"></span>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#deletarDevedor').arg(0, devedor.cpfDevedor)).build()}"><i class="material-icons center">delete</i></a></td>
+			</tr>
+		</tbody>
+	</table>
+	
 	<!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
