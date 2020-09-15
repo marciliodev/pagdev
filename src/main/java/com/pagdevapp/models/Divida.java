@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 import com.sun.istack.NotNull;
 
@@ -27,11 +28,11 @@ public class Divida implements Serializable{
 	@Column(name = "vl_divida")
 	private BigDecimal vlDivida;
 	
-	@NotNull
+	@NotEmpty
 	@Column(name = "dt_limite_pagamento")
 	private String dtLimitePagamento;
 	
-	@NotNull
+	@NotEmpty
 	@Column(name = "st_pagamento")
 	private String status;
 	

@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 import com.sun.istack.NotNull;
 
@@ -11,18 +12,19 @@ import com.sun.istack.NotNull;
 public class Devedor {
 	
 	@Id
+	@NotEmpty
 	@Column(name = "id_devedor")
 	private String cpfDevedor;
 	
-	@NotNull
+	@NotEmpty
 	@Column(name = "nm_devedor")
 	private String nmDevedor;
 	
-	@NotNull
+	@NotEmpty
 	@Column(name = "email_devedor")
 	private String emailDevedor;
 	
-	@NotNull
+	@NotEmpty
 	@Column(name = "telefone_devedor")
 	private String telefoneDevedor;
 	

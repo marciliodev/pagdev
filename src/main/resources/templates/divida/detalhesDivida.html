@@ -22,11 +22,13 @@
 			<p><span th:text="${divida.status}"></span></p>
 		</div>
 		
-		<form method="post">
-			CPF:<input type="text" value="" name="cpfDevedor"/>
-			Nome:<input type="text" value="" name="nmDevedor"/>
-			E-mail:<input type="text" value="" name="emailDevedor"/>
-			Telefone:<input type="text" value="" name="telefoneDevedor"/>
+		<th:block th:include="mensagemValidacao"></th:block>
+		
+		<form method="post" th:object="${devedor}">
+			CPF:<input type="text" value="" name="cpfDevedor" placeholder="000.000.000-00" class="validate"/>
+			Nome:<input type="text" value="" name="nmDevedor" placeholder="Nome Completo"/>
+			E-mail:<input type="text" value="" name="emailDevedor" placeholder="exemple@exemple.com"/>
+			Telefone:<input type="text" value="" name="telefoneDevedor" placeholder="(00) 00000-0000" class="validate"/>
 			<button  class="waves-effect waves-light btn" type="submit">Adicionar</button>	
 		</form>
 	</div>
