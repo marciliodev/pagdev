@@ -28,7 +28,7 @@
 	<table class="container">
 		<thead>
 			<tr>
-				<th>Devedor</th>
+				<th>Detalhes</th>
 				<th>Valor</th>
 				<th>Data de Pagamento</th>
 				<th>Status</th>
@@ -37,7 +37,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="divida : ${dividas}">
-				<td><a th:href="${(#mvc.url('DC#detalhesDivida').arg(0, divida.idDivida)).build()}"><span th:text="MOCK"></span></a></td>
+				<td><a th:href="${(#mvc.url('DC#detalhesDivida').arg(0, divida.idDivida)).build()}"><span th:text="Detalhes"></span></a></td>
 				<td><span th:text="${divida.vlDivida}"></span></td>
 				<td><span th:text="${divida.dtLimitePagamento}"></span></td>
 				<td><span th:text="${divida.status}"></span></td>

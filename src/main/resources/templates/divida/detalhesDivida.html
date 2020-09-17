@@ -25,12 +25,11 @@
   		</nav>
 	</header>  
 	<div th:each="divida : ${divida}" class="container detalhesDivida">
-	<h5>Detalhes da Divida</h5>
+	<h5><b>Detalhes da Divida</b></h5>
 		<div class="row">
-			<p><span th:text="MOCK"></span></p>
-			<p><span th:text="${divida.vlDivida}"></span></p>
-			<p><span th:text="${divida.dtLimitePagamento}"></span></p>
-			<p><span th:text="${divida.status}"></span></p>
+			<b><p>Valor: R$ <span th:text="${divida.vlDivida}"></span></p></b>
+			<b><p>Data de Pagamento: <span th:text="${divida.dtLimitePagamento}"></span></p></b>
+			<b><p>Status: <span th:text="${divida.status}"></span></p></b>
 		</div>
 	</div>
 		
