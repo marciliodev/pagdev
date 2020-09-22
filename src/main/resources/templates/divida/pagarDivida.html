@@ -4,7 +4,7 @@
 <head>
 	<title>PapDevApp</title>
 	<!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 
@@ -14,40 +14,43 @@
       <link rel="stylesheet" href="style/styleCss.css"/>
 </head>	  
 <body>
-
+	  
 	<header>
 		<nav>
     		<div class="nav-wrapper">
-      			<a href="#" class="brand-logo">Lista de Dividas</a>
+      			<a href="#" class="brand-logo">Dados da Divida</a>
 			    <ul id="nav-mobile" class="right hide-on-med-and-down">
-	        		<li><a href="/cadastrarDivida" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Divida</a></li>
+	        		<li><a href="/dividas" class="waves-effect waves-light btn"><i class="material-icons left">dehaze</i>Lista de Divida</a></li>
       			</ul>
     		</div>
   		</nav>
-	</header>
-	<table class="container">
+	</header>  
+	
+	<th:block th:include="mensagemValidacao"></th:block>
+	<div class="container formDivida">
+	<form class="container" method="post"> 
+		<table class="container">
 		<thead>
 			<tr>
-				<th>Detalhes</th>
 				<th>Valor</th>
 				<th>Data de Pagamento</th>
 				<th>Status</th>
-				<th>Pagar</th>
-				<th>Deletar</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="divida : ${dividas}">
-				<td><a th:href="${(#mvc.url('DC#detalhesDivida').arg(0, divida.idDivida)).build()}"><span th:text="Detalhes"></span></a></td>
+			<tr>
 				<td><span th:text="${divida.vlDivida}"></span></td>
 				<td><span th:text="${divida.dtLimitePagamento}"></span></td>
-				<td><span th:text="${divida.status}"></span></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#pagarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons  center">attach_money</i></a></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#deletarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons center">delete</i></a></td>
+				<td><input type="text" value="PAGO" name="status"/></td>
 			</tr>
 		</tbody>
 	</table>
+		<button type="submit" class="waves-effect waves-light btn">Pagar</button>
+		
+	</form>
+	</div>
 	<!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
+
 </html>
