@@ -22,7 +22,7 @@ import com.pagdevapp.repository.DividaRepository;
 
 //@RestController
 @Controller
-public class DividaController {
+public class DividaControllerFront {
 
 	@Autowired
 	private DividaRepository dr;

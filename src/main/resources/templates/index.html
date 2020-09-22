@@ -38,12 +38,12 @@
 		</thead>
 		<tbody>
 			<tr th:each="divida : ${dividas}">
-				<td><a th:href="${(#mvc.url('DC#detalhesDivida').arg(0, divida.idDivida)).build()}"><span th:text="Detalhes"></span></a></td>
+				<td><a th:href="${(#mvc.url('DCF#detalhesDivida').arg(0, divida.idDivida)).build()}"><span th:text="Detalhes"></span></a></td>
 				<td><span th:text="${divida.vlDivida}"></span></td>
 				<td><span th:text="${divida.dtLimitePagamento}"></span></td>
 				<td><span th:text="${divida.status}"></span></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#pagarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons  center">attach_money</i></a></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#deletarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons center">delete</i></a></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DCF#pagarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons  center">attach_money</i></a></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DCF#deletarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons center">delete</i></a></td>
 			</tr>
 		</tbody>
 	</table>

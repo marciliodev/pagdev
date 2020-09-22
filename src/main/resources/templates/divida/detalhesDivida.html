@@ -56,7 +56,7 @@
 			<tr th:each="devedor : ${devedores}">
 				<td><span th:text="${devedor.nmDevedor}"></span>
 				<td><span th:text="${devedor.cpfDevedor}"></span>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#deletarDevedor').arg(0, devedor.cpfDevedor)).build()}"><i class="material-icons center">delete</i></a></td>
+				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DCF#deletarDevedor').arg(0, devedor.cpfDevedor)).build()}"><i class="material-icons center">delete</i></a></td>
 			</tr>
 		</tbody>
 	</table>
