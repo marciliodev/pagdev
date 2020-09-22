@@ -1,14 +1,16 @@
 package com.pagdevapp.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -17,7 +19,7 @@ import com.pagdevapp.models.Divida;
 import com.pagdevapp.repository.DevedorRepository;
 import com.pagdevapp.repository.DividaRepository;
 
-@Controller
+@RestController
 public class DividaController {
 
 	@Autowired
@@ -49,6 +51,11 @@ public class DividaController {
 		mv.addObject("dividas", dividas);
 		return mv;	
 	}
+	
+	@GetMapping("/listar/dividas")
+	public List<Divida> listDividas() {
+		return (List<Divida>) dr.findAll();
+	} 
 	
 	@RequestMapping(value="/{idDivida}", method=RequestMethod.GET)
 	public ModelAndView detalhesDivida(@PathVariable("idDivida") long idDivida) {
@@ -93,19 +100,19 @@ public class DividaController {
 		return "redirect:/" + codigo;
 	}
 	// Formulario edição divida
-    @RequestMapping(value = "/editar-divida", method = RequestMethod.GET)
-    public ModelAndView editarEvent(long idDivida) {
+    @RequestMapping(value="/pagarDivida", method=RequestMethod.GET)
+    public ModelAndView pagarDivida(long idDivida) {
         Divida divida = dr.findByIdDivida(idDivida);
-        ModelAndView mv = new ModelAndView("divida/update-divida");
+        ModelAndView mv = new ModelAndView("divida/pagarDivida");
         mv.addObject("divida", divida);
         return mv;
     }
 
     // Updating divida
-    @RequestMapping(value = "/editar-divida", method = RequestMethod.POST)
-    public String updateEvent(@Valid Divida divida, BindingResult result, RedirectAttributes attributes) {
+    @RequestMapping(value="/pagarDivida", method=RequestMethod.POST)
+    public String updateDivida(@Valid Divida divida, BindingResult result, RedirectAttributes attributes) {
         dr.save(divida);
-        attributes.addFlashAttribute("success", "Divida alterado com sucesso!");
-        return "redirect:/";
+        attributes.addFlashAttribute("mensagem", "Divida paga com sucesso!");
+        return "redirect:/dividas";
     }
 }
