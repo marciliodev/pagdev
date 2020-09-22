@@ -32,7 +32,6 @@
 				<th>Valor</th>
 				<th>Data de Pagamento</th>
 				<th>Status</th>
-				<th>Pagar</th>
 				<th>Deletar</th>
 			</tr>
 		</thead>
@@ -42,7 +41,6 @@
 				<td><span th:text="${divida.vlDivida}"></span></td>
 				<td><span th:text="${divida.dtLimitePagamento}"></span></td>
 				<td><span th:text="${divida.status}"></span></td>
-				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#pagarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons  center">attach_money</i></a></td>
 				<td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('DC#deletarDivida').arg(0, divida.idDivida)).build()}"><i class="material-icons center">delete</i></a></td>
 			</tr>
 		</tbody>

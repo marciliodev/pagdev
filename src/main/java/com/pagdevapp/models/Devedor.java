@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
+import com.sun.istack.NotNull;
+
 @Entity
 public class Devedor {
 	
