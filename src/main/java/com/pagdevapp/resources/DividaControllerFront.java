@@ -1,4 +1,4 @@
-package com.pagdevapp.controllers;
+package com.pagdevapp.resources;
 
 import java.util.List;
 

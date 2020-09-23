@@ -1,4 +1,4 @@
-package com.pagdevapp.controllers;
+package com.pagdevapp.resources;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
