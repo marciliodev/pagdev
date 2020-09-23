@@ -15,6 +15,7 @@
 - [X] Excluir divida :trophy:
 - [X] Excluir devedor :trophy:
 - [ ] Pagar divida
+- [ ] Gerar cobranças automáticas
 - [ ] Validar entradas por tipo de dado
 - [ ] Documentar swagger
 - [ ] Integrar microserviço para divida
