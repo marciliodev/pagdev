@@ -116,7 +116,7 @@
 
 ### Estratégias e Metódologias :checkered_flag:
 
-- SCRUM :trophy:
+- SCRUM :trophy: https://trello.com/b/NE5TmV6c/pagdev
 - KABAN :trophy:
 - #VAIQUEDACONFIA :trophy:
 
