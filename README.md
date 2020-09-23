@@ -116,8 +116,8 @@
 
 ### Estratégias e Metódologias :checkered_flag:
 
-- SCRUM :checkered_flag:
-- KABAN :checkered_flag:
-- #VAIQUEDACONFIA :checkered_flag:
+- SCRUM :trophy:
+- KABAN :trophy:
+- #VAIQUEDACONFIA :trophy:
 
 ### Marcílio Aguiar - 23/09/2020 (Atualização do documento)
