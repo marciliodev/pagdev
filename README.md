@@ -1,9 +1,36 @@
-# pagdev v.1.0
+# Projeto API REST PAGDEVAPP 
 
-#Olá, bem vindo ao sistema de cobranças PagDev.
-#Este sistema foi desenvolvido em Spring Boot.
+## Descrição do Projeto
+<p align="justify"> Este projeto tem por objetivo servir como apoio no cadastro de dividas e gerar cobranças para os devedores.</p>
 
-#Instruções de uso:
+![Badge](https://img.shields.io/static/v1?label=java&message=spring-boot&color=blue&style=for-the-badge&logo=JAVA)
 
-#Baixe o projeto no seu workspace;
-#Tenha em sua máquina instalado o java jre ou jdk, maven, e mysql.
+### Funcionalidades atuais :checkered_flag:
+
+- [X] Cadastrar divida :trophy:
+- [X] Cadastrar devedores :trophy:
+- [X] Listar dividas :trophy:
+- [X] Listar divida por id :trophy:
+- [X] Listar devedores por divida :trophy:
+- [X] Excluir divida :trophy:
+- [X] Excluir devedor :trophy:
+- [ ] Pagar divida
+- [ ] Validar entradas por tipo de dado
+- [ ] Documentar swagger
+- [ ] Integrar microserviço para divida
+- [ ] Integrar microserviço para devedores
+- [ ] Criar testes unitários
+
+> Status do Projeto: Em desenvolvimento :warning:
+
+
+
+
+
+
+
+
+
+
+
+
